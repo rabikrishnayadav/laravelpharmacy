@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\MedicinesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::post('login_post', [AuthController::class, 'login_post']);
 Route::get('logout', [AuthController::class, 'logout']);
 
 Route::group(['middleware' => 'admin'], function(){
+    // Customer Manage
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('admin/customers', [CustomersController::class, 'customers']);
     Route::get('admin/customers/add', [CustomersController::class, 'add_customer']);
@@ -36,5 +38,12 @@ Route::group(['middleware' => 'admin'], function(){
     Route::post('admin/customers/edit/{id}', [CustomersController::class, 'update_customer']);
     Route::get('admin/customers/delete/{id}', [CustomersController::class, 'delete_customer']);
 
+    // Medicines Manage
+    Route::get('admin/medicines', [MedicinesController::class, 'medicines']);
+    Route::get('admin/medicines/add', [MedicinesController::class, 'add_medicine']);
+    Route::post('admin/medicines/add', [MedicinesController::class, 'insert_add_medicine']);
+    Route::get('admin/medicines/edit/{id}', [MedicinesController::class, 'edit_medicine']);
+    Route::post('admin/medicines/edit/{id}', [MedicinesController::class, 'update_medicine']);
+    Route::get('admin/medicines/delete/{id}', [MedicinesController::class, 'delete_medicine']);
 });
 
