@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\MedicinesController;
+use App\Http\Controllers\SuppliersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,15 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('admin/medicines_stock/edit/{id}', [MedicinesController::class, 'edit_medicines_stock']);
     Route::post('admin/medicines_stock/edit/{id}', [MedicinesController::class, 'update_medicines_stock']);
     Route::get('admin/medicines_stock/delete/{id}', [MedicinesController::class, 'delete_medicines_stock']);
+
+    // Suppliers Manage
+    Route::get('admin/suppliers', [SuppliersController::class, 'suppliers']);
+    Route::get('admin/suppliers/add', [SuppliersController::class, 'add_supplier']);
+    Route::post('admin/suppliers/add', [SuppliersController::class, 'insert_add_supplier']);
+    Route::get('admin/suppliers/edit/{id}', [SuppliersController::class, 'edit_supplier']);
+    Route::post('admin/suppliers/edit/{id}', [SuppliersController::class, 'update_supplier']);
+    Route::get('admin/suppliers/delete/{id}', [SuppliersController::class, 'delete_supplier']);
+
+
 });
 
