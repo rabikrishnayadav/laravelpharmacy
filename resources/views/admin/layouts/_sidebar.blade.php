@@ -25,6 +25,13 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link @if(Request::segment(2) == 'medicines_stock') @else collapsed @endif" href="{{ url('admin/medicines_stock') }}">
+          <i class="bi bi-shop"></i>
+          <span>Medicines Stock</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
