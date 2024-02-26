@@ -11,6 +11,7 @@ class PurchasesController extends Controller
 {
 	public function purchases(){
 		$data['getRecord'] = PurchasesModel::getAllRecord();
+		$data['meta_title'] = 'Purchases';
 		return view('admin.purchases.list',$data);
 	}
 
@@ -18,6 +19,7 @@ class PurchasesController extends Controller
 	{
 		$data['getSuppliers'] = SuppliersModel::getAllRecord();
 		$data['getInvoices'] = InvoicesModel::getAllRecord();
+		$data['meta_title'] = 'Add Purchases';
 		return view('admin.purchases.add', $data);
 	}
 
@@ -39,6 +41,7 @@ class PurchasesController extends Controller
 		$data['getSuppliers'] = SuppliersModel::getAllRecord();
 		$data['getInvoices'] = InvoicesModel::getAllRecord();
 		$data['oldRecord'] = PurchasesModel::getSingle($id);
+		$data['meta_title'] = 'Edit Purchases';
 		return view('admin.purchases.edit', $data);
 	}
 

@@ -10,11 +10,13 @@ class MedicinesController extends Controller
 {
     public function medicines(){
         $data['getRecord'] = MedicinesModel::getAllRecord();
+        $data['meta_title'] = 'Medicines';
         return view('admin.medicines.list',$data);
     }
 
     public function add_medicine(){
-        return view('admin.medicines.add');
+        $data['meta_title'] = 'Add Medicines';
+        return view('admin.medicines.add',$data);
     }
 
     public function insert_add_medicine(Request $request){
@@ -31,6 +33,7 @@ class MedicinesController extends Controller
 
     public function edit_medicine($id){
         $data['getRecord'] = MedicinesModel::getSingle($id);
+        $data['meta_title'] = 'Edit Medicines';
         return view('admin.medicines.edit', $data);
     }
 
@@ -61,13 +64,14 @@ class MedicinesController extends Controller
     public function medicines_stock_list()
     {
         $data['getRecord'] = MedicinesStockModel::get();
+        $data['meta_title'] = 'Medicines Stock';
         return view('admin.medicines.stock.list',$data);
     }
 
     public function medicines_stock_add()
     {
         $data['getRecord'] = MedicinesModel::where('is_deleted', '=', 0)->get();
-
+        $data['meta_title'] = 'Add Medicines Stock';
         return view('admin.medicines.stock.add', $data);
     }
 
@@ -90,6 +94,7 @@ class MedicinesController extends Controller
     {
         $data['oldRecord'] = MedicinesStockModel::getSingle($id);
         $data['getRecord'] = MedicinesModel::where('is_deleted', '=', 0)->get();
+        $data['meta_title'] = 'Edit Medicines Stock';
         return view('admin.medicines.stock.edit', $data);
     }
 

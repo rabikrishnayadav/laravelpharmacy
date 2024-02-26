@@ -10,11 +10,13 @@ class InvoicesController extends Controller
 {
 	public function invoices(){
 		$data['getRecord'] = InvoicesModel::getAllRecord();
+		$data['meta_title'] = 'Invoices';
 		return view('admin.invoices.list', $data);
 	}	
 
 	public function add_invoice(){
 		$data['getRecord'] = CustomersModel::get();
+		$data['meta_title'] = 'Add Invoices';
 		return view('admin.invoices.add', $data);
 	}
 
@@ -34,6 +36,7 @@ class InvoicesController extends Controller
     {
     	$data['oldRecord'] = InvoicesModel::getSingle($id);
         $data['getRecord'] = CustomersModel::getAllRecord();
+        $data['meta_title'] = 'Edit Invoices';
         return view('admin.invoices.edit', $data);
     }
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\MedicinesController;
 use App\Http\Controllers\SuppliersController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\PurchasesController;
+use App\Http\Controllers\WebsiteSettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +84,12 @@ Route::group(['middleware' => 'admin'], function(){
         Route::get('delete/{id}', [PurchasesController::class, 'delete_purchases']);
     });
     
+    // My Account Manage
+    Route::get('admin/my_account', [DashboardController::class, 'my_account']);
+    Route::post('admin/my_account', [DashboardController::class, 'my_account_update']);
+
+    Route::get('admin/settings', [WebsiteSettingsController::class, 'settings']);
+    Route::post('admin/website_update', [WebsiteSettingsController::class, 'website_update']);
 
 });
 

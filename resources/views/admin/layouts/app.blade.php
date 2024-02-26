@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - Pharmacy M.S</title>
+  <title>{{ !empty($meta_title) ? $meta_title : '' }} - Pharmacy M.S</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 

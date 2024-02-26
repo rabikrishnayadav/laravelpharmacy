@@ -9,10 +9,12 @@ class SuppliersController extends Controller
 {
     public function suppliers(){
         $data['getRecord'] = SuppliersModel::get();
+        $data['meta_title'] = 'Suppliers';
         return view('admin.suppliers.list',$data);
     }
 
     public function add_supplier(){
+        $data['meta_title'] = 'Add Suppliers';
         return view('admin.suppliers.add');
     }
 
@@ -32,6 +34,7 @@ class SuppliersController extends Controller
     public function edit_supplier($id)
     {
         $data['getRecord'] = SuppliersModel::getSingle($id);
+        $data['meta_title'] = 'Edit Suppliers';
         return view('admin.suppliers.edit', $data);
     }
 
