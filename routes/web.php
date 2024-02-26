@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\MedicinesController;
 use App\Http\Controllers\SuppliersController;
 use App\Http\Controllers\InvoicesController;
+use App\Http\Controllers\PurchasesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,17 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('admin/invoices/edit/{id}', [InvoicesController::class, 'edit_invoice']);
     Route::post('admin/invoices/edit/{id}', [InvoicesController::class, 'update_invoice']);
     Route::get('admin/invoices/delete/{id}', [InvoicesController::class, 'delete_invoice']);
+
+    // Invoices Manage
+    Route::prefix('admin/purchases/')->group(function(){
+        Route::get('', [PurchasesController::class, 'purchases']);
+        Route::get('add', [PurchasesController::class, 'add_purchases']);
+        Route::post('add', [PurchasesController::class, 'save_purchases']);
+        Route::get('edit/{id}', [PurchasesController::class, 'edit_purchases']);
+        Route::post('edit/{id}', [PurchasesController::class, 'update_purchases']);
+        Route::get('delete/{id}', [PurchasesController::class, 'delete_purchases']);
+    });
+    
 
 });
 

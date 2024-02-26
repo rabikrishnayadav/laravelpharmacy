@@ -14,4 +14,9 @@ class SuppliersModel extends Model
 	static public function getSingle($id){
 		return self::find($id);
 	}
+
+	static public function getAllRecord(){
+		return self::get();
+	}
+
 }
